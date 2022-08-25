@@ -13,3 +13,4 @@ Contents
 
     .. toctree::
        start
+       feed
