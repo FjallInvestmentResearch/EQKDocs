@@ -9,6 +9,8 @@ Feeds are necessary to download data using EQKit.
 Default Feed
 ***************
 
+::
+    
     init()
 
 Initialises the default feed.
@@ -16,6 +18,8 @@ Initialises the default feed.
 **Requires:** None
 
 **Returns:** None
+
+::
 
     set_id(str: id)
 
