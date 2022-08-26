@@ -51,15 +51,35 @@ Feeds are necessary to download data using EQKit.
 
 
 Using DataFeeds
-================
+******************************
 
-Selecting the right DataFeed is mainly based on user preference as well as the use-case. 
+Selecting the right DataFeed is mainly based on user preference as well as the use-case and goal. The Included data feeds can enable a researcher
+to perform most if not all relevant  
+
+**Correct Usage**
+
+This example shows proper useage of a data feed
+
+.. code-block:: 
+
+    feed = eqkit.feeds.YFinance()
+    stock = eqkit.Equity('AAPL', feed)
+    
+    stock.Overview()
+    stock.News()
+
+**Incorrect Usage**
+
+This first Incorrect example showcases code where one is using an :code:`Equity` only function using a :code:`Crypto` data feed. This action
+returns an error.
 
 .. code-block:: 
 
     feed = eqkit.feeds.Binance("KEY", "OTHER_KEY")
     feed.get_info('AAPL')
 
+This second example presents a scenario which a user is more likely to encounter. Here although the data feed supports equities, we call a method - namely
+:code:`Ratings()` which is not supported by the :code:`AlphaVantage` feed. 
 
 .. code-block:: 
 
@@ -69,7 +89,7 @@ Selecting the right DataFeed is mainly based on user preference as well as the u
 
 
 YFinance
-=========
+***************
 
 This data feed provides connectivity to the `Yahoo Finance API <https://policies.yahoo.com/us/en/yahoo/terms/product-atos/apiforydn/index.htm>`_ 
 via the `yfinance python library <https://github.com/ranaroussi/yfinance>`_ developed by [NAME]. It is unique as it does not
@@ -146,16 +166,29 @@ get_news(str: symbol)
 
 get_macro_series(str: id)
 
-check_limit()
+check_limit(redAPI("YOUR-API-KEY-HERE")
 
 valid_macro()
+
+
 
 Federal Reserve (FRED)
 ***********************
 
+This is a macro only data feed which can be used to add external data-points for research purpuses. We also recommended its use in retriving 
+US Treasury Yields and relevant timeseries. The API is provided by the Federal Reserve of St. Louis and while requiring an API KEY is has very high limits as
+it caters to academic use. Nontheless, the data is very valuable in this context too and the in-house wrapper using :code:`requests` was not too hard to build either.
+In order for users to achive good results in using this feed, they must use the FRED website to retrive the data :code:`id` you'd like to retrieve.
+
+.. code-block:: 
+
+    feed = eqkit.feeds.FredAPI("YOUR-API-KEY-HERE")
+
 API_KEY
 
 get_macro_series(str: id, str: start)
+
+
 
 Binance
 ********
