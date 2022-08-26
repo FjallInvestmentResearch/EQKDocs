@@ -14,3 +14,4 @@ Contents
     .. toctree::
        start
        feed
+       equity
