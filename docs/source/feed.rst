@@ -358,6 +358,24 @@ built in-house.
     Feed = eqkit.feeds.AlphaVantage('YOUR-API-KEY-HERE')
 
 
+Supported Macro Data
+^^^^^^^^^^^^^^^^^^^^^
+
+When generating Macro :code:`Timeseries` using AlphaVantage, users need to input a valid data id from the following list.
+
+* GDP: Gross Domestic Product
+* GDP_PC: Gross Domestic Product, Per Capita
+* FUNDS_RATE: Federal Funds Rate 
+* CPI: Consumer Price Index
+* INFLATION: Inflation Rate
+* INFLATION_EXPECTATION: Inflation Expectation
+* SENTIMENT: Consumer Sentiment
+* RETAIL: Retail Sales
+* DURABLES: Durable Good Orders
+* UNEMPLOYMENT: Unemployment Rate
+* NONFARM: Non-farm payroll 
+
+
 :code:`get_info(str: symbol)`
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Downloads overview information for an :code:`Equity()` object.
@@ -396,15 +414,51 @@ Returns a pandas DataFrame with sorted, timestamped OHLC data on the specified t
 
 :code:`get_BalanceSheet(str: symbol)`
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Returns a pandas DataFrame of the Annual Balance Sheet, as supported by the :code:`Equity()` object. This requires an AlphaVantage Premium API Account.  
+
+.. code-block:: 
+
+    Feed.get_BalanceSheet('AAPL')
+
+**Requires:** str: symbol
+
+**Returns:** obj: pd.DataFrame
 
 :code:`get_incomeStatement(str: symbol)`
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Returns a pandas DataFrame of the Annual Income Statement, as supported by the :code:`Equity()` object. This requires an AlphaVantage Premium API Account.  
+
+.. code-block:: 
+
+    Feed.get_incomeStatement('AAPL')
+
+**Requires:** str: symbol
+
+**Returns:** obj: pd.DataFrame
 
 :code:`get_news(str: symbol)`
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Returns a pandas DataFrame of the latest news for the selected ticker. This endpoint includes a sentiment reading on each story.
+
+.. code-block:: 
+
+    Feed.get_news('AAPL')
+
+**Requires:** str: symbol
+
+**Returns:** obj: pd.DataFrame
 
 :code:`get_macro_series(str: id)`
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Returns a pandas DataFrame of the macroeconomic data available (as detailed in the above section) by the provider. 
+
+.. code-block:: 
+
+    Feed.get_macro_series('RETAIL')
+
+**Requires:** str: symbol
+
+**Returns:** obj: pd.DataFrame
 
 :code:`check_limit()`
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
