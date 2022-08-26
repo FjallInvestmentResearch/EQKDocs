@@ -8,7 +8,7 @@ Feeds are necessary to download data using EQKit.
 
 .. note:: 
 
-    At this time, EQKit only supports daily prices as valid OCHL input. This is due to the accessibility & common use of such data. 
+    At this time, EQKit only supports daily prices as valid OCHL input. This is due to the accessibility & common use of such data in the equities space. 
 
 
 +---------------------------+------------------------------------------------+
@@ -51,15 +51,21 @@ Feeds are necessary to download data using EQKit.
 
 
 Using DataFeeds
-******************************
+******************
 
-Selecting the right DataFeed is mainly based on user preference as well as the use-case and goal. The Included data feeds can enable a researcher
-to perform most if not all relevant operations. Generally, certain data feeds are designed to cater to a data type; :code:`yfinance` is great for equities, 
-and :code:`Binance` great for crypto. This means that not all data feeds support all data types, as we show above.
+In normal operation, a user would not call the data feed directly, but instead use it on an instanciated object like an :code:`Equity`. However, data feeds are a key feature
+for users looking to download and aggregate financial data through EQKit. The structure of the relationship between the data feed and object means that the data feed package is easy 
+expandable to other providers or to include new features. Although, the most important aspect of the library in this regard is interoperability across data feeds. This is possible as 
+the objects are exchange agnostic while the :code:`Scanner` aggregation tool accounts for the set data feed. 
+
+**What API keys do I need?**
+You can test most functionality without a key, simply by using the :code:`YFinance()` data feed. However, for full functionality we recommend that users acquire at least a key for the 
+:code:`FredAPI()` and :code:`Binance()` data feeds to cover the Macro and Crypto data inputs. 
+If you are using another data provider, you can easily build a new data feed to cover your needs!
 
 **Correct Usage**
 
-This example shows proper useage of a data feed
+This example shows proper useage of the :code:`YFinance()` data feed; the requested symbol is that of an equity and the retrival methods are both supported by the feed. 
 
 .. code-block:: 
 
@@ -71,7 +77,7 @@ This example shows proper useage of a data feed
 
 **Incorrect Usage**
 
-This first Incorrect example showcases code where one is using an :code:`Equity` only function using a :code:`Crypto` data feed. This action
+This first incorrect example showcases code where one is using an :code:`Equity`-only function using a :code:`Crypto` data feed. This action
 returns an error.
 
 .. code-block:: 
@@ -80,7 +86,7 @@ returns an error.
     feed.get_info('AAPL')
 
 This second example presents a scenario which a user is more likely to encounter. Here although the data feed supports equities, we call a method - namely
-:code:`Ratings()` which is not supported by the :code:`AlphaVantage` feed. 
+:code:`Ratings()` which is not supported by the :code:`AlphaVantage` feed. This will also return an error.
 
 .. code-block:: 
 
@@ -88,13 +94,21 @@ This second example presents a scenario which a user is more likely to encounter
     equity = eqkit.Equity('AAPL', feed)
     equity.Ratings()
 
+**How does the data feed know what the ticker is?**
+
+*It doesn't!* The data feed is 'raw' and results without proper validation of the retieved asset data might be problematic and should be kept in mind. 
+In normal operation users should not break the data feeds given that only certain data is supported by each major data object.  
 
 YFinance
 ***************
 
 This data feed provides connectivity to the `Yahoo Finance API <https://policies.yahoo.com/us/en/yahoo/terms/product-atos/apiforydn/index.htm>`_ 
-via the `yfinance python library <https://github.com/ranaroussi/yfinance>`_ developed by [NAME]. It is unique as it does not
+via the `yfinance python library <https://github.com/ranaroussi/yfinance>`_ developed by Ran Aroussi. It is unique as it does not
 require an API_KEY and also has no request limit. This is recommended as the default datafeed for Equity & ETF dsta for personal use. 
+
+* `Documentation <https://github.com/ranaroussi/yfinance>`
+* **Supported Version:** 0.1.74
+* **Needs API Key?** No
 
 .. code-block:: 
 
@@ -104,7 +118,7 @@ require an API_KEY and also has no request limit. This is recommended as the def
 :code:`get_info(str: symbol)`
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Downloads overview information for an Equity object.
+Downloads overview information for an :code:`Equity()` object.
 
 .. code-block:: 
 
@@ -119,7 +133,7 @@ Downloads overview information for an Equity object.
 :code:`get_ETF_info(str: symbol)`
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Downloads overview information for an ETF object.
+Downloads overview information for an :code:`ETF()` object.
 
 .. code-block:: 
 
@@ -134,7 +148,7 @@ Downloads overview information for an ETF object.
 :code:`get_price(str: symbol)`
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Downloads and returns the current price as a float
+Downloads and returns the current price as a float.
 
 .. code-block:: 
 
@@ -331,38 +345,45 @@ Downloads the Top Mutual Fund Holders of a specified ticker and is only availabl
 AlphaVantage
 ***************
 
-The AlphaVantage API provides access to quality global equity data and can be easily used in python. This wrapper has been created by us here at
-Fjall Investment Research and directly uses :code:`requests` to communicate with the server. Through it we have packaged the most useful features
-Included in the API for use in this library. 
+The `AlphaVantage API <https://www.alphavantage.co/>` provides access to quality global equity data through both a free and paid API. Users get a 500 call-a-day limit and can download a 
+plethora financial data, such as OCHL, fundamentals and, macroeconomic timeseries. The API data feed is connected using the :code:`requests` library and is 
+built in-house. 
+
+* `Documentation <https://www.alphavantage.co/documentation/>`
+* **Supported Version:** 0.1.74
+* **Needs API Key?** `Yes [FREE] <https://www.alphavantage.co/support/#api-key>`
 
  .. code-block:: 
 
     Feed = eqkit.feeds.AlphaVantage('YOUR-API-KEY-HERE')
 
 
-Reference
-++++++++++
+:code:`get_info(str: symbol)`
+++++++++++++++++++++++++++++++
 
-API_KEY
+:code:`get_price(str: symbol)`
++++++++++++++++++++++++++++++++
 
-get_info(str: symbol)
+:code:`get_DailyKlines(str: symbol)`
++++++++++++++++++++++++++++++++++++++
 
-get_price(str: symbol)
+:code:`get_BalanceSheet(str: symbol)`
+++++++++++++++++++++++++++++++++++++++
 
-get_DailyKlines(str: symbol)
+:code:`get_incomeStatement(str: symbol)`
++++++++++++++++++++++++++++++++++++++++++
 
-get_BalanceSheet(str: symbol)
+:code:`get_news(str: symbol)`
+++++++++++++++++++++++++++++++
 
-get_incomeStatement(str: symbol)
+:code:`get_macro_series(str: id)`
++++++++++++++++++++++++++++++++++
 
-get_news(str: symbol)
+:code:`check_limit()`
+++++++++++++++++++++++
 
-get_macro_series(str: id)
-
-check_limit(redAPI("YOUR-API-KEY-HERE")
-
-valid_macro()
-
+:code:`valid_macro()`
++++++++++++++++++++++
 
 
 Federal Reserve (FRED)
@@ -378,24 +399,17 @@ In order for users to achive good results in using this feed, they must use the 
     feed = eqkit.feeds.FredAPI("YOUR-API-KEY-HERE")
 
 
-Reference
-++++++++++
-
-API_KEY
-
-get_macro_series(str: id, str: start)
-
+:code:`get_macro_series(str: id, str: start)`
+++++++++++++++++++++++++++++++++++++++++++++++
 
 
 Binance
 ********
 
-Reference
-++++++++++
-
 API_KEY, SECRET_KEY
 
-get_DailyKlines(str: symbol)
+:code:`get_DailyKlines(str: symbol)`
++++++++++++++++++++++++++++++++++++++
 
 IEX Cloud
 **********
