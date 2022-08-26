@@ -13,7 +13,7 @@ From :code:`FredAPI`
 From :code:`Pandas`
 ^^^^^^^^^^^^^^^^^^^
 
-Understanding how to use Macro Data in Studies
+Using Macro Data in Studies
 ------------------------------------------------
 
 Standard Reference
