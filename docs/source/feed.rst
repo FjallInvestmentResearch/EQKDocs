@@ -106,7 +106,7 @@ This data feed provides connectivity to the `Yahoo Finance API <https://policies
 via the `yfinance python library <https://github.com/ranaroussi/yfinance>`_ developed by Ran Aroussi. It is unique as it does not
 require an API_KEY and also has no request limit. This is recommended as the default datafeed for Equity & ETF dsta for personal use. 
 
-* `Documentation <https://github.com/ranaroussi/yfinance>`
+* `Documentation <https://github.com/ranaroussi/yfinance>`_
 * **Supported Version:** 0.1.74
 * **Needs API Key?** No
 
@@ -345,13 +345,13 @@ Downloads the Top Mutual Fund Holders of a specified ticker and is only availabl
 AlphaVantage
 ***************
 
-The `AlphaVantage API <https://www.alphavantage.co/>` provides access to quality global equity data through both a free and paid API. Users get a 500 call-a-day limit and can download a 
+The `AlphaVantage API<https://www.alphavantage.co/>` provides access to quality global equity data through both a free and paid API. Users get a 500 call-a-day limit and can download a 
 plethora financial data, such as OCHL, fundamentals and, macroeconomic timeseries. The API data feed is connected using the :code:`requests` library and is 
 built in-house. 
 
-* `Documentation <https://www.alphavantage.co/documentation/>`
-* **Supported Version:** 0.1.74
-* **Needs API Key?** `Yes [FREE] <https://www.alphavantage.co/support/#api-key>`
+* `Documentation<https://www.alphavantage.co/documentation/>`_
+* **Supported Version:** N/A
+* **Needs API Key?** `Yes [FREE]<https://www.alphavantage.co/support/#api-key>`_
 
  .. code-block:: 
 
@@ -393,6 +393,11 @@ This is a macro only data feed which can be used to add external data-points for
 US Treasury Yields and relevant timeseries. The API is provided by the Federal Reserve of St. Louis and while requiring an API KEY is has very high limits as
 it caters to academic use. Nontheless, the data is very valuable in this context too and the in-house wrapper using :code:`requests` was not too hard to build either.
 In order for users to achive good results in using this feed, they must use the FRED website to retrive the data :code:`id` you'd like to retrieve.
+
+
+* `Documentation <https://fred.stlouisfed.org/docs/api/fred/>`_
+* **Supported Version:** N/A
+* **Needs API Key?** `Yes [FREE] <https://fred.stlouisfed.org/docs/api/api_key.html>`_
 
 .. code-block:: 
 
