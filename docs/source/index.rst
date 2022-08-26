@@ -14,4 +14,11 @@ Contents
     .. toctree::
        start
        feed
+       timeseries
        equity
+       etf
+       ta
+       scanner
+       studies
+       value
+       bunsen

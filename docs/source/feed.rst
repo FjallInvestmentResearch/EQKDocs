@@ -349,9 +349,9 @@ The `AlphaVantage API<https://www.alphavantage.co/>` provides access to quality 
 plethora financial data, such as OCHL, fundamentals and, macroeconomic timeseries. The API data feed is connected using the :code:`requests` library and is 
 built in-house. 
 
-* `Documentation<https://www.alphavantage.co/documentation/>`_
+* `Documentation <https://www.alphavantage.co/documentation/>`_
 * **Supported Version:** N/A
-* **Needs API Key?** `Yes [FREE]<https://www.alphavantage.co/support/#api-key>`_
+* **Needs API Key?** `Yes [FREE] <https://www.alphavantage.co/support/#api-key>`_
 
  .. code-block:: 
 
@@ -360,12 +360,39 @@ built in-house.
 
 :code:`get_info(str: symbol)`
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Downloads overview information for an :code:`Equity()` object.
+
+.. code-block:: 
+
+    Feed.get_info('AAPL')
+
+**Requires:** str: symbol
+
+**Returns:** obj: pandas.DataFrame
 
 :code:`get_price(str: symbol)`
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Returns latest price as float. 
+
+.. code-block:: 
+
+    Feed.get_price('AAPL')
+
+**Requires:** str: symbol
+
+**Returns:** float: price
 
 :code:`get_DailyKlines(str: symbol)`
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Returns a pandas DataFrame with sorted, timestamped OHLC data on the specified ticker. As mentioned, this library only supports a daily timeframe.  
+
+.. code-block:: 
+
+    Feed.get_DailyKlines('AAPL')
+
+**Requires:** str: symbol
+
+**Returns:** obj: pd.DataFrame
 
 :code:`get_BalanceSheet(str: symbol)`
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
