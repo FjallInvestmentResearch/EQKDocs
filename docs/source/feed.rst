@@ -106,104 +106,119 @@ require an API_KEY and also has no request limit. This is recommended as the def
 Downloads overview information for an Equity object.
 
 **Requires:** str: symbol
+
 **Returns:** obj: pandas.DataFrame
 
-get_ETF_info(str: symbol)
+:code:`get_ETF_info(str: symbol)`
 
 Downloads overview information for an ETF object.
 
 **Requires:** str: symbol
+
 **Returns:** obj: pandas.DataFrame
 
-get_price(str: symbol)
+:code:`get_price(str: symbol)`
 
 Downloads and returns the current price as a float
 
 **Requires:** str: symbol
+
 **Returns:** float: price
 
-get_DailyKlines(str: symbol)
+:code:`get_DailyKlines(str: symbol)`
 
 Downloads :abbr:`OHLC (Open-High-Low-Close)` data for the specified symbol. 
 
 **Requires:** str: symbol
+
 **Returns:** obj: pandas.DataFrame
 
-get_BalanceSheet(str: symbol)
+:code:`get_BalanceSheet(str: symbol)`
 
 Downloads the Balance Sheet of a specified ticker and is only available through the :code:`Equity()` object.
 
 **Requires:** str: symbol
+
 **Returns:** obj: pandas.DataFrame
 
-get_incomeStatement(str: symbol)
+:code:`get_incomeStatement(str: symbol)`
 
 Downloads the Income Statement of a specified ticker and is only available through the :code:`Equity()` object.
 
 **Requires:** str: symbol
+
 **Returns:** obj: pandas.DataFrame
 
-get_cashFlow(str: symbol)
+:code:`get_cashFlow(str: symbol)`
 
 Downloads the Cash Flow Statement of a specified ticker and is only available through the :code:`Equity()` object.
 
 **Requires:** str: symbol
+
 **Returns:** obj: pandas.DataFrame
 
-get_Fund_Sectors(str: symbol)
+:code:`get_Fund_Sectors(str: symbol)`
 
 Downloads the Sector Weights of a specified ticker and is only available through the :code:`ETF()` object.
 
 **Requires:** str: symbol
+
 **Returns:** obj: pandas.DataFrame
 
-get_Fund_Holdings(str: symbol)
+:code:`get_Fund_Holdings(str: symbol)`
 
 Downloads the Top Holdings of a specified ticker and is only available through the :code:`ETF()` object.
 
 **Requires:** str: symbol
+
 **Returns:** obj: pandas.DataFrame
 
-get_ratings(str: symbol)
+:code:`get_ratings(str: symbol)`
 
 Downloads the Analyst Ratings of a specified ticker and is only available through the :code:`Equity()` object.
 
 **Requires:** str: symbol
+
 **Returns:** obj: pandas.DataFrame
 
-get_priceTargets(str: symbol)
+:code:`get_priceTargets(str: symbol)`
 
 Downloads the Analyst Price Targets of a specified ticker and is only available through the :code:`Equity()` object.
 
 **Requires:** str: symbol
+
 **Returns:** obj: pandas.DataFrame
 
-get_news(str: symbol)
+:code:`get_news(str: symbol)`
 
 Downloads the News feed of a specified ticker.
 
 **Requires:** str: symbol
+
 **Returns:** obj: pandas.DataFrame
 
-get_holders(str: symbol)
+:code:`get_holders(str: symbol)`
 
 Downloads the Top Holders of a specified ticker and is only available through the :code:`Equity()` object.
 
 **Requires:** str: symbol
+
 **Returns:** obj: pandas.DataFrame
 
-get_float(str: symbol)
+:code:`get_float(str: symbol)`
 
 Downloads the Float Composition of a specified ticker and is only available through the :code:`Equity()` object.
 
 **Requires:** str: symbol
+
 **Returns:** obj: pandas.DataFrame
 
-get_mutualholders(str: symbol)
+:code:`get_mutualholders(str: symbol)`
 
 Downloads the Top Mutual Fund Holders of a specified ticker and is only available through the :code:`Equity()` object.
 
 **Requires:** str: symbol
+
 **Returns:** obj: pandas.DataFrame
 
 
