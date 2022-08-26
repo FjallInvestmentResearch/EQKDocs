@@ -12,7 +12,7 @@ Feeds are necessary to download data using EQKit.
 
 
 +---------------------------+------------------------------------------------+
-| Supported Data            |    Included in Data Feeds                      |
+| Supported Data            |    Included Data Feeds                         |
 +-------------+-------------+----------+--------------+------+-----+---------+
 |Asset Class  | Data Point  | YFinance | AlphaVantage | FRED | IEX | Binance |
 +-------------+-------------+----------+--------------+------+-----+---------+
@@ -54,7 +54,8 @@ Using DataFeeds
 ******************************
 
 Selecting the right DataFeed is mainly based on user preference as well as the use-case and goal. The Included data feeds can enable a researcher
-to perform most if not all relevant  
+to perform most if not all relevant operations. Generally, certain data feeds are designed to cater to a data type; :code:`yfinance` is great for equities, 
+and :code:`Binance` great for crypto. This means that not all data feeds support all data types, as we show above.
 
 **Correct Usage**
 
@@ -101,7 +102,7 @@ require an API_KEY and also has no request limit. This is recommended as the def
 
 
 Reference
-***********
+++++++++++
 
 get_info(str: symbol)
 
@@ -148,7 +149,7 @@ Included in the API for use in this library.
 
 
 Reference
-***********
+++++++++++
 
 API_KEY
 
@@ -184,6 +185,10 @@ In order for users to achive good results in using this feed, they must use the 
 
     feed = eqkit.feeds.FredAPI("YOUR-API-KEY-HERE")
 
+
+Reference
+++++++++++
+
 API_KEY
 
 get_macro_series(str: id, str: start)
@@ -193,12 +198,18 @@ get_macro_series(str: id, str: start)
 Binance
 ********
 
+Reference
+++++++++++
+
 API_KEY, SECRET_KEY
 
 get_DailyKlines(str: symbol)
 
 IEX Cloud
 **********
+
+Reference
+++++++++++
 
 Default Feed
 ***************
