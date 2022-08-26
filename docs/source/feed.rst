@@ -102,86 +102,157 @@ require an API_KEY and also has no request limit. This is recommended as the def
 
 
 :code:`get_info(str: symbol)`
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Downloads overview information for an Equity object.
+
+.. code-block:: 
+
+    from eqkit.feeds import YFinance as feed
+
+    feed().get_info('AAPL')
 
 **Requires:** str: symbol
 
 **Returns:** obj: pandas.DataFrame
 
 :code:`get_ETF_info(str: symbol)`
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Downloads overview information for an ETF object.
+
+.. code-block:: 
+
+    from eqkit.feeds import YFinance as feed
+
+    feed().get_ETF_info('SPY')
 
 **Requires:** str: symbol
 
 **Returns:** obj: pandas.DataFrame
 
 :code:`get_price(str: symbol)`
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Downloads and returns the current price as a float
+
+.. code-block:: 
+
+    from eqkit.feeds import YFinance as feed
+
+    feed().get_price('AAPL')
 
 **Requires:** str: symbol
 
 **Returns:** float: price
 
 :code:`get_DailyKlines(str: symbol)`
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Downloads :abbr:`OHLC (Open-High-Low-Close)` data for the specified symbol. 
+
+.. code-block:: 
+
+    from eqkit.feeds import YFinance as feed
+
+    feed().get_DailyKlines('AAPL')
 
 **Requires:** str: symbol
 
 **Returns:** obj: pandas.DataFrame
 
 :code:`get_BalanceSheet(str: symbol)`
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Downloads the Balance Sheet of a specified ticker and is only available through the :code:`Equity()` object.
+Downloads the Annual Balance Sheet of a specified ticker and is only available through the :code:`Equity()` object.
+
+.. code-block:: 
+
+    from eqkit.feeds import YFinance as feed
+
+    feed().get_BalanceSheet('AAPL')
 
 **Requires:** str: symbol
 
 **Returns:** obj: pandas.DataFrame
 
 :code:`get_incomeStatement(str: symbol)`
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Downloads the Income Statement of a specified ticker and is only available through the :code:`Equity()` object.
+Downloads the Annual Income Statement of a specified ticker and is only available through the :code:`Equity()` object.
+
+.. code-block:: 
+
+    from eqkit.feeds import YFinance as feed
+
+    feed().get_incomeStatement('AAPL')
 
 **Requires:** str: symbol
 
 **Returns:** obj: pandas.DataFrame
 
 :code:`get_cashFlow(str: symbol)`
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Downloads the Cash Flow Statement of a specified ticker and is only available through the :code:`Equity()` object.
+Downloads the Annual Cash Flow Statement of a specified ticker and is only available through the :code:`Equity()` object.
+
+.. code-block:: 
+
+    from eqkit.feeds import YFinance as feed
+
+    feed().get_cashFlow('AAPL')
 
 **Requires:** str: symbol
 
 **Returns:** obj: pandas.DataFrame
 
 :code:`get_Fund_Sectors(str: symbol)`
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Downloads the Sector Weights of a specified ticker and is only available through the :code:`ETF()` object.
+
+.. code-block:: 
+
+    from eqkit.feeds import YFinance as feed
+
+    feed().get_Fund_Sectors('SPY')
 
 **Requires:** str: symbol
 
 **Returns:** obj: pandas.DataFrame
 
 :code:`get_Fund_Holdings(str: symbol)`
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Downloads the Top Holdings of a specified ticker and is only available through the :code:`ETF()` object.
+
+.. code-block:: 
+
+    from eqkit.feeds import YFinance as feed
+
+    feed().get_Fund_Holdings('SPY')
 
 **Requires:** str: symbol
 
 **Returns:** obj: pandas.DataFrame
 
 :code:`get_ratings(str: symbol)`
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Downloads the Analyst Ratings of a specified ticker and is only available through the :code:`Equity()` object.
+
+.. code-block:: 
+
+    from eqkit.feeds import YFinance as feed
+
+    feed().get_ratings('AAPL')
 
 **Requires:** str: symbol
 
 **Returns:** obj: pandas.DataFrame
 
 :code:`get_priceTargets(str: symbol)`
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Downloads the Analyst Price Targets of a specified ticker and is only available through the :code:`Equity()` object.
 
@@ -189,33 +260,68 @@ Downloads the Analyst Price Targets of a specified ticker and is only available 
 
 **Returns:** obj: pandas.DataFrame
 
+.. code-block:: 
+
+    from eqkit.feeds import YFinance as feed
+
+    feed().get_priceTargets('AAPL')
+
 :code:`get_news(str: symbol)`
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Downloads the News feed of a specified ticker.
+
+.. code-block:: 
+
+    from eqkit.feeds import YFinance as feed
+
+    feed().get_news('AAPL')
 
 **Requires:** str: symbol
 
 **Returns:** obj: pandas.DataFrame
 
 :code:`get_holders(str: symbol)`
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Downloads the Top Holders of a specified ticker and is only available through the :code:`Equity()` object.
+
+.. code-block:: 
+
+    from eqkit.feeds import YFinance as feed
+
+    feed().get_holders('AAPL')
 
 **Requires:** str: symbol
 
 **Returns:** obj: pandas.DataFrame
 
+
 :code:`get_float(str: symbol)`
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Downloads the Float Composition of a specified ticker and is only available through the :code:`Equity()` object.
+
+.. code-block:: 
+
+    from eqkit.feeds import YFinance as feed
+
+    feed().get_float('AAPL')
 
 **Requires:** str: symbol
 
 **Returns:** obj: pandas.DataFrame
 
 :code:`get_mutualholders(str: symbol)`
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Downloads the Top Mutual Fund Holders of a specified ticker and is only available through the :code:`Equity()` object.
+
+.. code-block:: 
+
+    from eqkit.feeds import YFinance as feed
+
+    feed().get_mutualholders('AAPL')
 
 **Requires:** str: symbol
 
