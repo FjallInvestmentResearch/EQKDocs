@@ -24,11 +24,62 @@ Calling from Objects
 Included Studies
 -----------------
 
+:code:`Autocorrelation(obj: ALPHA, int: lags)`
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+:code:`CumulativeReturn(obj: ALPHA, obj: BETA, int: period, bool: vol_match)`
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+:code:`CalendarPerformance(obj: ALPHA, str: freq)`
+++++++++++++++++++++++++++++++++++++++++++++++++++
+
+:code:`DynamicCTE(obj: ALPHA, obj: BETA, int: lookback, int: max)`
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+:code:`Hurst(obj: ALPHA, int: lags)`
++++++++++++++++++++++++++++++++++++++
+
+:code:`InterestRateSensitivity(obj: ALPHA, str: API_KEY, str: mode)`
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+:code:`InterestSensitivityDuration(obj: ALPHA, str: API_KEY)`
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+:code:`ETFpca(obj: ALPHA, obj: exchange, int: components, int: window)`
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+:code:`QuantileQuantile(obj: ALPHA, obj: BETA, int: window)`
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+:code:`ReturnRegressions(obj: ALPHA, int: window)`
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+:code:`RollingBeta(obj: ALPHA, obj: BETA, int: window)`
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+:code:`SessionTurnover(obj: ALPHA, obj: exchange, bool: normalise)`
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+:code:`VWAP(obj: ALPHA, obj: exchange, bool: normalise)`
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+:code:`OpenVolume(obj: ALPHA, obj: exchange, bool: normalise)`
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+:code:`CloseVolume(obj: ALPHA, obj: exchange, bool: normalise)`
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+:code:`DecompSTL(obj: ALPHA, int: period)`
++++++++++++++++++++++++++++++++++++++++++++
+
 :code:`RollingSharpe(obj: ALPHA, int: lookback)`
 ++++++++++++++++++++++++++++++++++++++++++++++++
 
 :code:`LinearRegression(obj: ALPHA, obj: BETA)`
 ++++++++++++++++++++++++++++++++++++++++++++++++
+
+:code:`CTExplorer(obj: ALPHA, obj: BETA, int: lookback, int: multi)`
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 :code:`Correlation(obj: ALPHA, obj: BETA)`
 ++++++++++++++++++++++++++++++++++++++++++++++++
@@ -48,22 +99,10 @@ Included Studies
 :code:`RollingReturn(obj: ALPHA, int: lookback)`
 +++++++++++++++++++++++++++++++++++++++++++++++++
 
-:code:`RollingSharp(obj: ALPHA, int: lookback)`
-++++++++++++++++++++++++++++++++++++++++++++++++
+:code:`MCapTurnover(obj: ALPHA, obj: exchange, int: lookback)`
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-:code:`InterestRateSensitivity(obj: ALPHA, str: API_KEY)`
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-:code:`QuantileQuantile(obj: ALPHA, obj: BETA, int: window)`
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-:code:`Autocorrelation(obj: ALPHA, int: lags)`
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-:code:`ReturnRegressions(obj: ALPHA, int: window)`
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-:code:`RollingBeta(obj: ALPHA, obj: BETA, int: window)`
+:code:`WklyMCT(obj: ALPHA, obj: exchange, int: lookback)`
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 :code:`VAR(obj: ALPHA, int: window, float: conf)`
@@ -72,26 +111,20 @@ Included Studies
 :code:`HoldingVAR(obj: ALPHA, int: window, float: conf)`
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-:code:`ETFpca(obj: ALPHA, obj: exchange, int: components, int: window)`
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-:code:`DynamicCTE(obj: ALPHA, obj: BETA, int: lookback, int: max)`
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-:code:`MCapTurnover(obj: ALPHA, obj: exchange, int: lookback)`
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-:code:`WklyMCT(obj: ALPHA, obj: exchange, int: lookback)`
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
 :code:`WeekdayVolume(obj: ALPHA, obj: BETA, int: lookback, int: max)`
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 :code:`VolumePattern(obj: ALPHA, obj: BETA, int: lookback, int: max)`
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 :code:`IntradayPriceRange(obj: ALPHA, obj: BETA, int: lookback, int: max)`
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+:code:`NormalisedAccumulation(obj: ALPHA, obj: feed, int: days, int: norm)`
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+:code:`VolumeParticipation(obj: ALPHA, obj: feed, int: days, int: units)`
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 Building your Own
 -------------------
