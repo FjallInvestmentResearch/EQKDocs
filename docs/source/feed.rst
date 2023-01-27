@@ -110,6 +110,9 @@ require an API_KEY and also has no request limit. This is recommended as the def
 * **Supported Version:** 0.1.74
 * **Needs API Key?** No
 
+Reference
+++++++++++++
+
 .. code-block:: 
 
     Feed = eqkit.feeds.YFinance()
@@ -359,7 +362,7 @@ built in-house.
 
 
 Supported Macro Data
-^^^^^^^^^^^^^^^^^^^^^
+++++++++++++++++++++++
 
 When generating Macro :code:`Timeseries` using AlphaVantage, users need to input a valid data id from the following list.
 
@@ -375,6 +378,8 @@ When generating Macro :code:`Timeseries` using AlphaVantage, users need to input
 * UNEMPLOYMENT: Unemployment Rate
 * NONFARM: Non-farm payroll 
 
+Reference
+++++++++++
 
 :code:`get_info(str: symbol)`
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -498,8 +503,95 @@ API_KEY, SECRET_KEY
 IEX Cloud
 **********
 
+Capital.gr
+***********
+
+This is a custom resting requests based wrapper API for the Capital.gr website which streams delayed data from the Athens Exchange (ATHEX). This
+module has been designed to retrive Index data which is not published elsewhere. It does not need an API key to operate. 
+It currently includes 21 indices.
+
+Starting Up
+++++++++++++
+
+.. code-block::
+    
+    feed = EQKit.feeds.CapitalGr()
+
+The API can be simply initialised by just calling the module. Upon initialising, the API will 'scan' the CapitalGr database and retrive the updated keys for the included indices.
+
+Getting Data
+++++++++++++++
+
+.. code-block:: 
+
+    index = feed.get_timeSeries(ticker='FTSE', smoothing=True)
+
+The code-block shown above is the simplest way to to get a data object from the API in a usable Timeseries format. This mean it can be easily plotted and used in studies. 
+
 Reference
-++++++++++
+++++++++++++
+
+Below is a comprehensive list of all the methods included in the API.
+
+:code:`list()`
+^^^^^^^^^^^^^^^
+Returns a formated printed list of the available indices.
+
+.. code-block:: 
+
+    feed.list()
+
+**Requires:** None
+
+**Returns:** print
+
+:code:`get_index(str: ticker, bool: smoothing)`
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Returns a pandas Timeseries data object with the closing orice of the selected index. The *smoothing* bool setting specifies whether the data should be smoothed for outliers.
+
+.. code-block:: 
+
+    feed.get_index(ticker='FTSE', smoothing=True)
+
+**Requires:** str: ticker, bool: smoothing
+
+**Returns:** pd.Series
+
+:code:`get_timeSeries(str: symbol, bool: smoothing)`
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Returns a Timeseries object with the closing orice of the selected index. The *smoothing* bool setting specifies whether the data should be smoothed for outliers.
+
+.. code-block:: 
+
+    feed.get_timeSeries(ticker='FTSE', smoothing=True)
+
+**Requires:** str: ticker, bool: smoothing
+
+**Returns:** EQKit.Timeseries
+
+:code:`search(str: query, bool: lucky)`
+++++++++++++++++++++++++++++++++++++++++
+Returns a proximity match top-5 data-frame for the selected query. If lucky is specified then the return object is a ready-made timeseries.
+
+.. code-block:: 
+
+    feed.search(query='General',l lucky=False)
+
+**Requires:** str: query, bool: lucky
+
+**Returns:** pd.DataFrame or EQKit.Timeseries
+
+:code:`catalogue()`
++++++++++++++++++++
+Returns the available index data list in computer readable format, `dict`.
+
+.. code-block:: 
+
+    feed.catalogue()
+
+**Requires:** None
+
+**Returns:** dict
 
 Default Feed
 ***************
