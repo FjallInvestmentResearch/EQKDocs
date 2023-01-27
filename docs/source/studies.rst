@@ -4,6 +4,23 @@ Studies
 Methods
 --------
 
+:code:`run()`
++++++++++++++++
+
+:code:`calc()`
++++++++++++++++
+
+:code:`plot()`
++++++++++++++++
+
+Calling from Objects
+---------------------
+
+.. code-block::
+
+    stock.study(EQKit.studies.Drawdown)
+
+
 Included Studies
 -----------------
 
@@ -58,6 +75,23 @@ Included Studies
 :code:`ETFpca(obj: ALPHA, obj: exchange, int: components, int: window)`
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+:code:`DynamicCTE(obj: ALPHA, obj: BETA, int: lookback, int: max)`
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+:code:`MCapTurnover(obj: ALPHA, obj: exchange, int: lookback)`
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+:code:`WklyMCT(obj: ALPHA, obj: exchange, int: lookback)`
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+:code:`WeekdayVolume(obj: ALPHA, obj: BETA, int: lookback, int: max)`
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+:code:`VolumePattern(obj: ALPHA, obj: BETA, int: lookback, int: max)`
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+:code:`IntradayPriceRange(obj: ALPHA, obj: BETA, int: lookback, int: max)`
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 Building your Own
 -------------------

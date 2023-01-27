@@ -144,16 +144,28 @@ Study
 
 Plotting
 ---------
+We can easily plot the prices of an equity using the `.plot()` method. Utilising matplotlib
+we can see a visualisation of the OHLC dataset. 
+
+* Mode (str): "N": nominal & "L": logarithmic
+* Period (int): specifies number of days (back) to plot
+* Indicators (arr): An array of EQKit.ta.indicator objects
 
 .. code-block:: 
 
-    equity.plot(mode, )
+    equity.plot(mode, indicators, period)
 
-**Requires:** None
+**Requires:** str: mode, arr: indicators, int: period
 **Returns:** obj: pandas.DataFrame
 
-Plotting Price
-++++++++++++++++
+.. code-block::
+
+    equity.plot(mode='N', indicators=[EQKit.ta.indicators.VWAP(14)], 252)
+
+The above Statement returns the normal price plot over the last year (252 days) and superimposes a 14-day VWAP.
+
+Plotting Other Data
++++++++++++++++++++++
 
 :code:`plot_balancesheet(str: parameter)`
 ++++++++++++++++++++++++++++++++++++++++++
