@@ -34,6 +34,12 @@ Technical Indicators
 :code:`AverageTrueRange(int: period)`
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+:code:`RollingMax(int: period)`
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+:code:`RollingMin(int: period)`
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 Signals
 --------
 

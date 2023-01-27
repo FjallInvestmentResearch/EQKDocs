@@ -17,6 +17,9 @@ Contents
        timeseries
        equity
        etf
+       crypto
+       fx
+       portfolio
        ta
        scanner
        studies
