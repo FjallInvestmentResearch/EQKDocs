@@ -488,20 +488,52 @@ The only operation supported by the package is a query for data which can be mad
     feed = eqkit.feeds.FredAPI("YOUR-API-KEY-HERE")
 
 
+Getting Started with Macro Data
+++++++++++++++++++++++++++++++++
+
+
+Reference
+++++++++++
+
 :code:`get_macro_series(str: id, str: start)`
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Returns a pandas Series object containing the timeseries values for the specified data timeseries from the FRED API database, this is passed using the *id* parameter. The Start
+date of the timeseries is passed in string format via the *start* parameter.
+
+.. code-block:: 
+
+    feed.get_macro_series(id='CAPISCOL', start='01-01-2010')
+
+**Requires:** str: id, str: start
+**Returns:** pd.Series
 
 
 Binance
 ********
 
-API_KEY, SECRET_KEY
+This datafeed API is a wrapper for the python-binance package developed by [NAME] which can be used to connect to 
+
+Getting Started
+++++++++++++++++
+
+How to Use
++++++++++++
+
+Reference
+++++++++++
+
+:code:`__init__(str: API_KEY, str: SECRET_KEY)`
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 :code:`get_DailyKlines(str: symbol)`
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-IEX Cloud
-**********
+:code:`get_crypto_info(str: symbol)`
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+:code:`get_price(str: symbol)`
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 
 Capital.gr
 ***********
@@ -575,7 +607,7 @@ Returns a proximity match top-5 data-frame for the selected query. If lucky is s
 
 .. code-block:: 
 
-    feed.search(query='General',l lucky=False)
+    feed.search(query='General', lucky=False)
 
 **Requires:** str: query, bool: lucky
 
@@ -592,6 +624,9 @@ Returns the available index data list in computer readable format, `dict`.
 **Requires:** None
 
 **Returns:** dict
+
+IEX Cloud
+**********
 
 Default Feed
 ***************
