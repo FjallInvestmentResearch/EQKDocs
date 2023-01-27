@@ -511,29 +511,86 @@ date of the timeseries is passed in string format via the *start* parameter.
 Binance
 ********
 
-This datafeed API is a wrapper for the python-binance package developed by [NAME] which can be used to connect to 
+This datafeed API is a wrapper for the `python-binance <https://python-binance.readthedocs.io/en/latest/>`_ package developed by Sam McHardy which can be used to connect to the
+cryptocurrency exchange to retrive Spot & Derivatives data. This implementation of the wrapper is derived from Crypto CSuite product however, has limited functionality and currently
+only supports spot timeseries data for crypto price studies. It requires an active Binance account and associated SHA keys to connect. 
+
+* `Documentation <https://python-binance.readthedocs.io/en/latest/>`_
+* **Supported Version:** v1.0.16
+* **Needs API Key?** `Yes [FREE with Binance Account] <https://www.binance.com/en/support/faq/how-to-create-api-360002502072`_
 
 Getting Started
 ++++++++++++++++
 
-How to Use
-+++++++++++
+Step 1: Activating an API Key
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+To begin using the Binance API in EQKit one must set-up a valid Binance API key-pair for use with external applications. To do this, the user must have an active Binance Account,
+not necesserily one with capital or executed trades. You can find a complete guide to doing this `here <https://www.binance.com/en/support/faq/how-to-create-api-360002502072>`_. 
+Once that is completed you will have a string key-pair which you will need to import into the library. 
+
+We will work to include ways of importing encypted key-pair files.
+
+Step 2: Setting up the Client
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Once you have the API keys you can simply use the statement below to connect with the Binance client and then use the feed for crypto data retrival. 
+
+.. code-block:: 
+
+    feed = EQKit.feeds.Binance(API_KEY='MY_KEY', SECRET_KEY='MY_SECRET_KEY')
+
 
 Reference
 ++++++++++
+Below is a comprehensive list of all the methods currently included in the API wrapper. 
 
 :code:`__init__(str: API_KEY, str: SECRET_KEY)`
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Initialises the Binance API client.
+
+.. code-block:: 
+
+    feed = EQKit.feeds.Binance(API_KEY='MY_KEY', SECRET_KEY='MY_SECRET_KEY')
+
+**Requires:** str: API_KEY, str: SECRET_KEY
+
+**Returns:** EQKit.Datafeed
+
 
 :code:`get_DailyKlines(str: symbol)`
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Returns the OHLCV pandas DataFrame with the specified symbol data. 
+
+.. code-block:: 
+
+    feed.get_DailyKlines(symbol='BTCUSDT')
+
+**Requires:** str: symbol
+
+**Returns:** pd.DataFrame
 
 :code:`get_crypto_info(str: symbol)`
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Returns a 1 row pandas DataFrame object with summary information about the selected cryptocurrency pair.
+
+.. code-block:: 
+
+    feed.get_crypto_info(symbol='BTCUSDT')
+
+**Requires:** str: symbol
+
+**Returns:** pd.DataFrame
 
 :code:`get_price(str: symbol)`
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Returnsa float of the last 5 minutes VWAP as latest price - usefull for scanner functions.
 
+.. code-block:: 
+
+    feed.get_price(symbol='BTCUSDT')
+
+**Requires:** str: symbol
+
+**Returns:** float
 
 Capital.gr
 ***********
@@ -542,8 +599,8 @@ This is a custom resting requests based wrapper API for the Capital.gr website w
 module has been designed to retrive Index data which is not published elsewhere. It does not need an API key to operate. 
 It currently includes 21 indices.
 
-Starting Up
-++++++++++++
+Getting Started
++++++++++++++++++
 
 .. code-block::
     
