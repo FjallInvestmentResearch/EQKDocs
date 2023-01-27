@@ -558,7 +558,7 @@ Returns a pandas Timeseries data object with the closing orice of the selected i
 **Returns:** pd.Series
 
 :code:`get_timeSeries(str: symbol, bool: smoothing)`
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Returns a Timeseries object with the closing orice of the selected index. The *smoothing* bool setting specifies whether the data should be smoothed for outliers.
 
 .. code-block:: 
@@ -570,7 +570,7 @@ Returns a Timeseries object with the closing orice of the selected index. The *s
 **Returns:** EQKit.Timeseries
 
 :code:`search(str: query, bool: lucky)`
-++++++++++++++++++++++++++++++++++++++++
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Returns a proximity match top-5 data-frame for the selected query. If lucky is specified then the return object is a ready-made timeseries.
 
 .. code-block:: 
@@ -582,7 +582,7 @@ Returns a proximity match top-5 data-frame for the selected query. If lucky is s
 **Returns:** pd.DataFrame or EQKit.Timeseries
 
 :code:`catalogue()`
-+++++++++++++++++++
+^^^^^^^^^^^^^^^^^^^
 Returns the available index data list in computer readable format, `dict`.
 
 .. code-block:: 
