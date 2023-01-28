@@ -682,6 +682,18 @@ Returns the available index data list in computer readable format, `dict`.
 
 **Returns:** dict
 
+Google Trends
+***************
+
+Getting Started
+^^^^^^^^^^^^^^^^
+
+Utilising Alternative Data
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Reference
+^^^^^^^^^^
+
 IEX Cloud
 **********
 

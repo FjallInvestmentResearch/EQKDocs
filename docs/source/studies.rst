@@ -57,6 +57,12 @@ Included Studies
 :code:`RollingBeta(obj: ALPHA, obj: BETA, int: window)`
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+:code:`ExpLinearRegression(obj: ALPHA, obj: BETA, bool: calc_returns, int: period)`
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+:code:`RegRobustness(obj: ALPHA, obj: BETA,int: period, int: window, bool: calc_returns)`
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 :code:`SessionTurnover(obj: ALPHA, obj: exchange, bool: normalise)`
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -98,6 +104,9 @@ Included Studies
 
 :code:`RollingReturn(obj: ALPHA, int: lookback)`
 +++++++++++++++++++++++++++++++++++++++++++++++++
+
+:code:`ZScore(obj: ALPHA, int: window)`
+++++++++++++++++++++++++++++++++++++++++
 
 :code:`MCapTurnover(obj: ALPHA, obj: exchange, int: lookback)`
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
